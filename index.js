@@ -1,8 +1,12 @@
 const express = require('express')
 const app = express()
-const cors = require('cors')
+
 app.use(express.static('dist'))
-app.use(cors())
+const cors = require('cors');
+
+if (process.env.NODE_ENV === 'development') {
+  app.use(cors());
+}
 
 
 
